@@ -7,12 +7,12 @@ import java.util.stream.Collectors;
  * that show number pattern which is represented in a matrix
  * form. It is a 2D array of m*n which traverses in clockwise
  * manner.
- *
+ * <p>
  * Time Complexity : O(mn)
  *
- * @author  Ashish
+ * @author Ashish
  * @version 1.0
- * @since   2022-10-18
+ * @since 2022-10-18
  */
 public class Traverse2DArray {
 
@@ -42,6 +42,7 @@ public class Traverse2DArray {
 
         // condition to make sure that there are elements in array to be added
         while (top < bottom && left < right) {
+
             // adds the first row from the remaining rows
             for (itr = left; itr < right; ++itr) {
                 orderedItem.add(arr[top][itr] + "");
@@ -53,6 +54,7 @@ public class Traverse2DArray {
                 orderedItem.add(arr[itr][right - 1] + "");
             }
             right--;
+
             // adds the last row from the remaining rows
             if (top < bottom) {
                 for (itr = right - 1; itr >= left; --itr) {
@@ -60,6 +62,7 @@ public class Traverse2DArray {
                 }
                 bottom--;
             }
+
             // adds the first column from the remaining columns
             if (left < right) {
                 for (itr = bottom - 1; itr >= top; --itr) {
@@ -68,6 +71,7 @@ public class Traverse2DArray {
                 left++;
             }
         }
+
         // converting the list of string into string which contains clockwise traverse order
         return orderedItem.stream().collect(Collectors.joining(","));
     }
